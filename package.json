@@ -1,0 +1,68 @@
+{
+  "name": "mcp-web-content-pick",
+  "version": "0.0.23",
+  "description": "A tool for extracting structured content from web pages with customizable selectors and crawling options",
+  "bin": {
+    "web-content-pick": "dist/index.js",
+    "mcp-web-content-pick": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build:ts": "tsc",
+    "build:bundle": "rollup -c rollup.config.mjs --debug",
+    "build": "pnpm run build:ts && pnpm run build:bundle",
+    "clean": "rm -rf dist",
+    "start": "tsx src/index.ts",
+    "prepublishOnly": "npm run build",
+    "pb": "pnpm run clean && pnpm run build && npm publish && pnpm run clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web-scraping",
+    "content-extraction",
+    "html-parser",
+    "web-crawler",
+    "structured-data",
+    "mcp",
+    "model-context-protocol"
+  ],
+  "author": "kilicmu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kilicmu/mcp-web-content-pick"
+  },
+  "bugs": {
+    "url": "https://github.com/kilicmu/mcp-web-content-pick/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "jsonschema": "^1.4.1",
+    "web-structure": "^1.0.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/jsonschema": "^1.1.1",
+    "@types/node": "^20.11.24",
+    "rollup": "^4.12.0",
+    "tslib": "^2.6.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.3.3",
+    "@babel/preset-env": "^7.26.9",
+    "@rollup/plugin-babel": "^6.0.4",
+    "rollup-plugin-esbuild": "^6.2.1"
+
+  }
+}
